@@ -27,7 +27,7 @@ user can check the language courses offered by HS
     click link             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[1]/ul/li[1]/ul/li[8]/a
     execute javascript     window.scrollTo(0,1000)
     click link             xpath:/html/body/div[2]/main/section[3]/section/div[1]/div[2]/div/a
-    sleep                  5s
+    sleep                  10s
     close browser
 
 
