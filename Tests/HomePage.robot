@@ -79,7 +79,7 @@ User is able to log in to HSA Webmail
 
     #open browser
     log                     Starting the test case
-    open browser            ${HSURL}     ${browser}}
+    open browser            ${HSURL}     ${browser}
     maximize browser window
 
     click button           ${cookies}
@@ -178,7 +178,7 @@ Location of Koethen campus can detected
 
     #open browser
     log                     Starting the test case
-    open browser            ${HSURL}     ${Browser}}
+    open browser            ${HSURL}     ${Browser}
     maximize browser window
     click button           ${Cookies}
     scroll element into view    xpath:/html/body/div[2]/footer/section[2]/div/div[5]/section/div/div/div/div[1]/div/div/a
@@ -200,7 +200,7 @@ user can check the requirements of programs
     open browser            ${HSURL}    ${Browser}
     maximize browser window
     click button                ${cookies}
-    scroll element into view    xpath:/html/body/div[2]/main/section[2]/div[2]/section/div/div/form
+    scroll element into view    xpath:/html/body/div[2]/main/section[2]/div[4]/div[2]/section/div/div[2]/a
     select from list by label   tx_bwhsacourses_pi1[examSearch]        Master
     select from list by label   tx_bwhsacourses_pi1[locationSearch]    Köthen
     click button                xpath:/html/body/div[2]/main/section[2]/div[2]/section/div/div/form/div[2]/div[5]/input
@@ -228,7 +228,7 @@ user can search for books in hochschule library
     click button           ${Cookies}
     mouse over             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[6]/a
     click link             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[6]/ul/li[4]/ul/li[2]/a
-    scroll element into view    xpath:/html/body/div[2]/main/section[4]/div[2]/div/div/div/form
+    scroll element into view    name=bquery
     input text             name=bquery         introduction to programming
     press keys             None                ENTER
     switch window          locator=NEW
@@ -308,7 +308,7 @@ user can use the search bar
 
     #open browser
     log                    Starting the test case
-    open browser           ${HSURL}     ${Browser}}
+    open browser           ${HSURL}     ${Browser}
     maximize browser window
     click button           ${cookies}
     click link             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[7]/a
