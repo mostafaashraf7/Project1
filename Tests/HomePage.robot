@@ -1,3 +1,7 @@
+#Title:Implementation of Regression Testing using Test Automation tools for HS Anhalt Website
+#Author:Mostafa Ashraf
+#Date:31/09/2023
+
 *** Settings ***
 Documentation       AS a Tester I am verifying that the website basic functionality is woerking as excepected
 Library             SeleniumLibrary
