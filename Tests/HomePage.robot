@@ -8,11 +8,12 @@ Library             SeleniumLibrary
 *** Variables ***
 ${HSURL}                     https://www.hs-anhalt.de/startseite.html
 ${Cookies}                   xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
+${Browser}                   chrome
 
 *** Test Cases ***
 Home page should load
     [Documentation]         As a tester i want to verify that Home page can be loaded
-    [Tags]                  001    smoke   Home
+    [Tags]                  101    function   Home
 
     #intialize selenium
     set selenium speed      .2s
@@ -20,7 +21,7 @@ Home page should load
 
     #open browser
     log                     Starting the test case
-    open browser            ${HSURL}    chrome
+    open browser            ${HSURL}    ${Browser}
 
     #resize browser window
     maximize browser window
@@ -30,7 +31,7 @@ Home page should load
 
 Language can be switched between Deutch and English
     [Documentation]         As a tseter i want to verify that switching between languages is possible
-    [Tags]                  002    function    Home
+    [Tags]                  102    function    Home
 
         #intialize selenium
     set selenium speed      .2s
@@ -38,20 +39,18 @@ Language can be switched between Deutch and English
 
     #open browser
     log                     Starting the test case
-    open browser            ${HSURL}     chrome
+    open browser            ${HSURL}     ${Browser}
 
     maximize browser window
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
+    click button           ${cookies}
     click link             EN
     click link             DE
-    click link             xpath://*[@id="mainmenu"]/li[1]/ul/li[3]/ul/li[2]/a
-    sleep                   10s
     close browser
 
 
 The latest news of HS can be checked
     [Documentation]         As a tseter i want to verify that checking the latest news is possible
-    [Tags]                  1003    function    Home
+    [Tags]                  103    function    Home
 
         #intialize selenium
     set selenium speed      .2s
@@ -59,20 +58,20 @@ The latest news of HS can be checked
 
     #open browser
     log                     Starting the test case
-    open browser            ${HSURL}     chrome
+    open browser            ${HSURL}    ${browser}
 
     #resize browser window
     maximize browser window
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
-    click link             href="https://www.hs-anhalt.de/hochschule-anhalt/profil.
+    click button           ${Cookies}
+    click link             xpath=/html/body/div[2]/div/div/div[1]/div/div/div[2]/ul/li[6]/a
     scroll element into view   xpath:/html/body/div[2]/main/section[3]/div[3]/div[3]/a
     click link             xpath:/html/body/div[2]/main/section[3]/div[3]/div[3]/a
-    sleep                   10s
+    execute javascript     window.scrollTo(0,2000)
     close browser
 
 User is able to log in to HSA Webmail
     [Documentation]         As a tseter i want to verify that the user can log in to HSA Webmail
-    [Tags]                  104    function    Home
+    [Tags]                  104    function    Login
 
         #intialize selenium
     set selenium speed      .2s
@@ -80,13 +79,13 @@ User is able to log in to HSA Webmail
 
     #open browser
     log                     Starting the test case
-    open browser            ${HSURL}     chrome
+    open browser            ${HSURL}     ${browser}}
     maximize browser window
 
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
+    click button           ${cookies}
     sleep                  5s
     mouse over             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[1]/a
-    sleep                   5s
+    sleep                  5s
     click link             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[1]/ul/li[3]/ul/li[2]/a
     scroll element into view    xpath:/html/body/div[2]/main/section[3]/div[2]/section/div[1]/div[1]/div/div[2]/a
     click link             xpath:/html/body/div[2]/main/section[3]/div[2]/section/div[1]/div[1]/div/div[2]/a
@@ -99,7 +98,7 @@ User is able to log in to HSA Webmail
 
 Log in to SSC Student Portal
     [Documentation]         As a tseter i want to verify that the user can log in to HSA SSC Student Portal
-    [Tags]                  105    function    Home
+    [Tags]                  105    function    LOgin
 
         #intialize selenium
     set selenium speed      .2s
@@ -107,13 +106,11 @@ Log in to SSC Student Portal
 
     #open browser
     log                     Starting the test case
-    open browser            ${HSURL}     chrome
+    open browser            ${HSURL}     ${browser}
     maximize browser window
 
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
-    sleep                  5s
+    click button           ${Cookies}
     mouse over             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[1]/a
-    sleep                   5s
     click link             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[1]/ul/li[3]/ul/li[2]/a
     scroll element into view    xpath:/html/body/div[2]/main/section[3]/div[2]/section/div[1]/div[2]/div/div[2]/a
     click link             xpath:/html/body/div[2]/main/section[3]/div[2]/section/div[1]/div[2]/div/div[2]/a
@@ -121,12 +118,11 @@ Log in to SSC Student Portal
     input text             id=asdf          mostafa
     input text             id=fdsa          15542635
     click button           xpath:/html/body/div[1]/div[1]/div/div/div[3]/div[2]/form[1]/div/button
-    sleep                  5s
     close browser
 
 Log in to HISQIS
     [Documentation]         As a tseter i want to verify that the user can log in to HISQIS
-    [Tags]                  106    function    Home
+    [Tags]                  106    function    login
 
         #intialize selenium
     set selenium speed      .2s
@@ -134,13 +130,11 @@ Log in to HISQIS
 
     #open browser
     log                     Starting the test case
-    open browser            https://www.hs-anhalt.de/startseite.html    chrome
+    open browser            ${HSURL}    ${Browser}
     maximize browser window
 
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
-    sleep                  5s
+    click button           ${cookies}
     mouse over             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[1]/a
-    sleep                   5s
     click link             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[1]/ul/li[3]/ul/li[2]/a
     scroll element into view    xpath:/html/body/div[2]/main/section[3]/div[2]/section/div[2]/div[1]/div/div[2]/a
     click link             xpath:/html/body/div[2]/main/section[3]/div[2]/section/div[1]/div[3]/div/div[2]/a
@@ -148,12 +142,11 @@ Log in to HISQIS
     input text             id=asdf          mostafa
     input text             id=fdsa          15542635
     click element          submit
-    sleep                  5s
     close browser
 
 User is able to log in to Moodle
     [Documentation]         As a tseter i want to verify that the user can log in to HSA Webmail
-    [Tags]                  107    function    Home
+    [Tags]                  107    function    Login
 
         #intialize selenium
     set selenium speed      .2s
@@ -161,10 +154,10 @@ User is able to log in to Moodle
 
     #open browser
     log                     Starting the test case
-    open browser            ${HSURL}     chrome
+    open browser            ${HSURL}     ${Browser}
     maximize browser window
 
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
+    click button           ${Cookies}
     mouse over             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[1]/a
     click link             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[1]/ul/li[3]/ul/li[2]/a
     scroll element into view    xpath:/html/body/div[2]/main/section[3]/div[2]/section/div[2]/div[1]/div/div[2]/a
@@ -176,8 +169,8 @@ User is able to log in to Moodle
     close browser
 
 Location of Koethen campus can detected
-    [Documentation]         As a tseter i want to verify that the user can log in to HSA Webmail
-    [Tags]                  108    function    Home
+    [Documentation]         As a tseter i want to verify that the user can find Koethen campus location
+    [Tags]                  108    function    Contact
 
         #intialize selenium
     set selenium speed      .2s
@@ -185,9 +178,9 @@ Location of Koethen campus can detected
 
     #open browser
     log                     Starting the test case
-    open browser            ${HSURL}     chrome
+    open browser            ${HSURL}     ${Browser}}
     maximize browser window
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
+    click button           ${Cookies}
     scroll element into view    xpath:/html/body/div[2]/footer/section[2]/div/div[5]/section/div/div/div/div[1]/div/div/a
     click link             xpath:/html/body/div[2]/footer/section[2]/div/div[5]/section/div/div/div/div[1]/div/div/a
     click button           xpath:/html/body/c-wiz/div/div/div/div[2]/div[1]/div[3]/div[1]/div[1]/form[1]/div/div/button
@@ -195,7 +188,7 @@ Location of Koethen campus can detected
     close browser
 
 user can check the requirements of programs
-    [Documentation]         As a tseter i want to verify that the user can log in to HSA Webmail
+    [Documentation]         As a tseter i want to verify that the user check the requirements of programs offered
     [Tags]                  109   function    Home
 
         #intialize selenium
@@ -204,9 +197,9 @@ user can check the requirements of programs
 
     #open browser
     log                     Starting the test case
-    open browser            https://www.hs-anhalt.de/startseite.html    chrome
+    open browser            ${HSURL}    ${Browser}
     maximize browser window
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
+    click button                ${cookies}
     scroll element into view    xpath:/html/body/div[2]/main/section[2]/div[2]/section/div/div/form
     select from list by label   tx_bwhsacourses_pi1[examSearch]        Master
     select from list by label   tx_bwhsacourses_pi1[locationSearch]    Köthen
@@ -221,7 +214,7 @@ user can check the requirements of programs
 
 
 user can search for books in hochschule library
-    [Documentation]         As a tseter i want to verify that the user can log in to HSA Webmail
+    [Documentation]         As a tseter i want to verify that the user can search in HS library for books needed
     [Tags]                  110    function    Home
 
         #intialize selenium
@@ -230,10 +223,9 @@ user can search for books in hochschule library
 
     #open browser
     log                     Starting the test case
-    open browser            https://www.hs-anhalt.de/startseite.html    chrome
+    open browser            ${HSURL}    ${Browser}
     maximize browser window
-
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
+    click button           ${Cookies}
     mouse over             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[6]/a
     click link             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[6]/ul/li[4]/ul/li[2]/a
     scroll element into view    xpath:/html/body/div[2]/main/section[4]/div[2]/div/div/div/form
@@ -244,7 +236,7 @@ user can search for books in hochschule library
     close browser
 
 user can search for current R&D projects
-    [Documentation]         As a tseter i want to verify that the user can log in to HSA Webmail
+    [Documentation]         As a tseter i want to verify that the user can look for new research projects
     [Tags]                  111    function    Home
 
         #intialize selenium
@@ -253,7 +245,7 @@ user can search for current R&D projects
 
     #open browser
     log                     Starting the test case
-    open browser            ${HSURL}    chrome
+    open browser            ${HSURL}    ${Browser}
     maximize browser window
 
     click button           ${Cookies}
@@ -264,7 +256,7 @@ user can search for current R&D projects
     close browser
 
 user can book a room in the student dorm
-    [Documentation]         As a tseter i want to verify that the user can log in to HSA SSC Student Portal
+    [Documentation]         As a tseter i want to verify that the user can search for accomedation in the dorm
     [Tags]                  112    function    Home
 
         #intialize selenium
@@ -272,11 +264,10 @@ user can book a room in the student dorm
     set selenium timeout    10s
 
     #open browser
-    log                     Starting the test case
-    open browser            ${HSURL}     chrome
+    log                    Starting the test case
+    open browser           ${HSURL}     ${Browser}
     maximize browser window
-
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
+    click button           ${cookies}
     mouse over             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[2]/a
     click link             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[2]/ul/li[3]/ul/li[1]/a
     scroll element into view    xpath://div[@class="card__content"]
@@ -286,8 +277,8 @@ user can book a room in the student dorm
     close browser
 
 user can follow the hochschule social media platforms
-    [Documentation]         As a tseter i want to verify that the user can log in to HSA SSC Student Portal
-    [Tags]                  105    function    Home
+    [Documentation]         As a tseter i want to verify that the user can check HS social media accounts
+    [Tags]                  113    function    Home
 
         #intialize selenium
     set selenium speed      .2s
@@ -295,20 +286,20 @@ user can follow the hochschule social media platforms
 
     #open browser
     log                     Starting the test case
-    open browser            ${HSURL}     chrome
+    open browser            ${HSURL}     ${Browser}
     maximize browser window
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
+    click button            ${cookies}
     scroll element into view    xpath://a[@title="facebook"]
-    click element          xpath://a[@title="facebook"]
-    click element          xpath://a[@title="instagram"]
-    click element          xpath://a[@title="linkedin"]
+    click element           xpath://a[@title="facebook"]
+    click element           xpath://a[@title="instagram"]
+    click element           xpath://a[@title="linkedin"]
     go back
-    click element          xpath://a[@title="twitter"]
-    click element          xpath://a[@title="youtube"]
+    click element           xpath://a[@title="twitter"]
+    click element           xpath://a[@title="youtube"]
     close browser
 
 user can use the search bar
-    [Documentation]         As a tseter i want to verify that the user can log in to HSA SSC Student Portal
+    [Documentation]         As a tseter i want to verify that the user can search for any text in the search bar
     [Tags]                  114    function    Home
 
         #intialize selenium
@@ -316,10 +307,10 @@ user can use the search bar
     set selenium timeout    10s
 
     #open browser
-    log                     Starting the test case
-    open browser            ${HSURL}     chrome
+    log                    Starting the test case
+    open browser           ${HSURL}     ${Browser}}
     maximize browser window
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
+    click button           ${cookies}
     click link             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[7]/a
     input text             id=searchfield         professor
     click button           xpath://button[@type="submit"]
@@ -327,17 +318,17 @@ user can use the search bar
 
 
 user can log in to job portal in HS
-    [Documentation]         As a tseter i want to verify that the user can log in to HSA SSC Student Portal
-    [Tags]                  105    function    Home
+    [Documentation]         As a tseter i want to verify that the user can log in to job portal
+    [Tags]                  115    function    Login
 
         #intialize selenium
     set selenium speed      .2s
     set selenium timeout    10s
 
     #open browser
-    log                     Starting the test case
-    open browser            ${HSURL}     chrome
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
+    log                    Starting the test case
+    open browser           ${HSURL}     ${browser}
+    click button           ${cookies}
     mouse over             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[1]/a
     click link             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[1]/ul/li[5]/ul/li[7]/a
     maximize browser window
@@ -351,8 +342,8 @@ user can log in to job portal in HS
     close browser
 
 user can check the current events
-    [Documentation]         As a tseter i want to verify that the user can log in to HSA SSC Student Portal
-    [Tags]                  105    function    Home
+    [Documentation]         As a tseter i want to verify that the user can look into current events held in the campus
+    [Tags]                  116    function    Home
 
         #intialize selenium
     set selenium speed      .2s
@@ -360,8 +351,8 @@ user can check the current events
 
     #open browser
     log                     Starting the test case
-    open browser            ${HSURL}     chrome
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
+    open browser            ${HSURL}     ${Browser}
+    click button            ${Cookies}
     maximize browser window
     execute javascript     window.scrollTo(0,2000)
     click link             xpath://*[@id="c885"]/div[2]/section/div/div[2]/a
@@ -371,7 +362,7 @@ user can check the current events
 
 user can play the videos in home page
     [Documentation]         As a tseter i want to verify that the user can log in to HSA SSC Student Portal
-    [Tags]                  105    function    Home
+    [Tags]                  117    function    Home
 
         #intialize selenium
     set selenium speed      .2s
@@ -379,8 +370,8 @@ user can play the videos in home page
 
     #open browser
     log                     Starting the test case
-    open browser            ${HSURL}     chrome
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
+    open browser            ${HSURL}     ${Browser}
+    click button            ${Cookies}
     maximize browser window
     execute javascript     window.scrollTo(0,4000)
     click element          xpath://span[@class="icon-ic_playbutton_invert"]
@@ -388,22 +379,21 @@ user can play the videos in home page
 
 user can check the language courses offered by HS
     [Documentation]         As a tseter i want to verify that the user can log in to HSA SSC Student Portal
-    [Tags]                  105    function    Home
+    [Tags]                  118    function    Home
 
         #intialize selenium
     set selenium speed      .2s
     set selenium timeout    10s
 
     #open browser
-    log                     Starting the test case
-    open browser            ${HSURL}     chrome
-    click button           xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
+    log                    Starting the test case
+    open browser           ${HSURL}     ${Browser}
+    click button           ${Cookies}
     maximize browser window
     mouse over             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[1]/a
     click link             xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[1]/ul/li[1]/ul/li[8]/a
     execute javascript     window.scrollTo(0,1000)
     click link             xpath:/html/body/div[2]/main/section[3]/section/div[1]/div[2]/div/a
-    sleep                  5s
     close browser
 
 
