@@ -70,7 +70,7 @@ ${XPATH_Praktika & Jobs}    xpath://a[@title="Praktika & Jobs"]
 ${XPATH_infoButtonCE}       xpath://div[@class="infoButtonCE"]
 ${XPATH_loginbutton}        xpath://*[@id="sign-in-form"]/form/button
 #116
-${XPATH_Alle anzeigen}      xpath://*[@id="c885"]/div[2]/section/div/div[2]/a
+${XPATH_Alle anzeigen}      xpath:/html/body/div[2]/main/section[2]/div[4]/div[2]/div/div/div[2]/a
 #117
 ${XPATH_VIDEO}              xpath://span[@class="icon-ic_playbutton_invert"]
 #118
