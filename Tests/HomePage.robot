@@ -16,9 +16,9 @@ ${HSURL}                     https://www.hs-anhalt.de/startseite.html
 ${Cookies}                   xpath://*[@id="SgCookieOptin"]/div/div[1]/button[1]
 ${Browser}                   chrome
 #103
-${XPATH_AKTEULLES}           /html/body/div[2]/div/div/div[1]/div/div/div[2]/ul/li[6]/a
-${XPATH_Neuigkeiten}         /html/body/div[2]/main/section[3]/div[3]/div[3]/a
-${XPATH_Alle anzeigen}       /html/body/div[2]/main/section[3]/div[3]/div[3]/a
+${XPATH_AKTEULLES}           xpath:/html/body/div[2]/div/div/div[1]/div/div/div[2]/ul/li[6]/a
+${XPATH_Neuigkeiten}          xpath:/html/body/div[2]/main/section[3]/div[3]/div[3]/a
+${XPATH_Alle anzeigen}        xpath:/html/body/div[2]/main/section[3]/div[3]/div[3]/a
 #104
 ${XPATH_Studieren}           xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[1]/a
 ${XPATH_Digitale Dienste}    xpath:/html/body/div[2]/div/div/div[2]/div/div/div[2]/ul/li[1]/ul/li[3]/ul/li[2]/a
