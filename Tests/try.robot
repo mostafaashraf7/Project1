@@ -170,6 +170,98 @@ User is able to log in to HSA Webmail
     sleep                  5s
     close browser
 
+Log in to SSC Student Portal
+    [Documentation]         As a tseter i want to verify that the user can log in to HSA SSC Student Portal
+    [Tags]                  105    function    LOgin
+
+        #intialize selenium
+    set selenium speed      .2s
+    set selenium timeout    10s
+
+    #open browser
+    log                     Starting the test case
+    open browser            ${HSURL}     ${browser}
+    maximize browser window
+
+    click button           ${Cookies}
+    mouse over             ${XPATH_Studieren}
+    click link             ${XPATH_Digitale Dienste}
+    scroll element into view    ${XPATH_to the SSC student porta}
+    click link             ${XPATH_to the SSC student porta}
+    switch window          locator=NEW
+    input text             id=asdf          mostafa
+    input text             id=fdsa          15542635
+    click button           ${XPATH_Register}
+    close browser
+
+Log in to HISQIS
+    [Documentation]         As a tseter i want to verify that the user can log in to HISQIS
+    [Tags]                  106    function    login
+
+        #intialize selenium
+    set selenium speed      .2s
+    set selenium timeout    10s
+
+    #open browser
+    log                     Starting the test case
+    open browser            ${HSURL}    ${Browser}
+    maximize browser window
+
+    click button           ${cookies}
+    mouse over             ${XPATH_Studieren}
+    click link             ${XPATH_Digitale Dienste}
+    scroll element into view    ${XPATH_to the HIS-QIS}
+    click link             ${XPATH_to the HIS-QIS}
+    switch window          locator=NEW
+    input text             id=asdf          mostafa
+    input text             id=fdsa          15542635
+    click element          submit
+    close browser
+
+User is able to log in to Moodle
+    [Documentation]         As a tseter i want to verify that the user can log in to HSA Webmail
+    [Tags]                  107    function    Login
+
+        #intialize selenium
+    set selenium speed      .2s
+    set selenium timeout    10s
+
+    #open browser
+    log                     Starting the test case
+    open browser            ${HSURL}     ${Browser}
+    maximize browser window
+
+    click button           ${Cookies}
+    mouse over             ${XPATH_Studieren}
+    click link             ${XPATH_Digitale Dienste}
+    scroll element into view    ${XPATH_to the learning management system}
+    click link             ${XPATH_to the learning management system}
+    switch window          title=Moodle Hochschule Anhalt: Log in to the site
+    input text             id=username          mostafa
+    input text             id=password          15542635
+    click button           ${XPATH_login}
+    close browser
+
+Location of Koethen campus can detected
+    [Documentation]         As a tseter i want to verify that the user can find Koethen campus location
+    [Tags]                  108    function    Contact
+
+        #intialize selenium
+    set selenium speed      .2s
+    set selenium timeout    10s
+
+    #open browser
+    log                     Starting the test case
+    open browser            ${HSURL}     ${Browser}
+    maximize browser window
+    click button           ${Cookies}
+    scroll element into view    ${XPATH_KOETHEN}
+    click link             ${XPATH_KOETHEN}
+    click button           ${XPATH_MAP}
+    sleep                  10s
+    close browser
+
+
 
 
 
