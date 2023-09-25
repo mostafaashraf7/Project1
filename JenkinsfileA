@@ -18,7 +18,7 @@ pipeline {
                         "files": [
                             {
                                 "pattern": "results/report.html",
-                                "target": "http://localhost:8082/artifactory/generic-local-project1/"
+                                "target": "http://localhost:8082/artifactory/example-repo-local/"
                             }
                         ]
                     }"""
