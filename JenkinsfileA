@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout your source code from SCM if needed
+                // Example for Git:
+                checkout scm
+            }
+        }
+        
+        stage('Upload to Artifactory') {
+            steps {
+                script {
+                    def server = Artifactory.newServer url: 'http://localhost:8082/artifactory', username: 'admin', password: '18861996_mM'
+                    def uploadSpec = """{
+                        "files": [
+                            {
+                                "pattern": "results/report.html",
+                                "target": "http://localhost:8082/ui/repos/tree/General/generic-local-project1/chrome"
+                            }
+                        ]
+                    }"""
+                    def buildInfo = server.upload spec: uploadSpec
+                }
+            }
+        }
+    }
+}
