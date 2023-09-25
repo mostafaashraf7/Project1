@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout your source code from SCM if needed
+                // Example for Git:
+                checkout scm
+            }
+        }
+        
+        stage('Upload to Artifactory') {
+            steps {
+                script {
+                    def server = Artifactory.server 'http://localhost:8082/'
+                    def uploadSpec = """{
+                        "files": [
+                            {
+                                "pattern": "C:\Users\Lenovo\.jenkins\workspace\Regression Test HS Anhalt Website - Chrome\results\report.html",
+                                "target": "http://localhost:8082/ui/repos/tree/General/generic-local-project1/chrome"
+                            }
+                        ]
+                    }"""
+                    def buildInfo = server.upload spec: uploadSpec
+                }
+            }
+        }
+    }
+}
