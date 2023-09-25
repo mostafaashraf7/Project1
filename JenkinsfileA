@@ -17,7 +17,7 @@ pipeline {
                     def uploadSpec = """{
                         "files": [
                             {
-                                "pattern": "C:\Users\Lenovo\.jenkins\workspace\Regression Test HS Anhalt Website - Chrome\results\report.html",
+                                "pattern": "results/report.html",
                                 "target": "http://localhost:8082/ui/repos/tree/General/generic-local-project1/chrome"
                             }
                         ]
